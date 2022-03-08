@@ -1,15 +1,36 @@
 <template>
   <div class="container">
-    <div class="tree_select" style="width: 20%; margin: auto;">
+    <div class="tree_select" style="width: 20%; margin: auto">
       <a-tree-select
-        v-model="value"
         style="width: 100%"
         :tree-data="treeData"
         tree-checkable
         :show-checked-strategy="SHOW_PARENT"
         search-placeholder="Please select"
         placeholder="请选择参数"
+        searchPlaceholder="111"
       />
+    </div>
+    <div class="badge">
+      <a-badge count="5">
+        <a href="#" class="head-example" />
+      </a-badge>
+      <a-badge count="0" show-zero>
+        <a href="#" class="head-example" />
+      </a-badge>
+      <a-badge>
+        <a-icon slot="count" type="clock-circle" style="color: #f5222d" />
+        <a href="#" class="head-example" />
+      </a-badge>
+    </div>
+    <div
+      :style="{
+        width: '300px',
+        border: '1px solid #d9d9d9',
+        borderRadius: '4px',
+      }"
+    >
+      <a-calendar :fullscreen="false" @panelChange="onPanelChange" />
     </div>
   </div>
 </template>
@@ -58,10 +79,22 @@ const treeData = [
 export default {
   data() {
     return {
-      value: ["0-0-0"],
+      //   value: ["0-0-0"],
       treeData,
       SHOW_PARENT,
     };
   },
+  methods: {
+    onPanelChange(value, mode) {
+      console.log(value, mode);
+    },
+  },
 };
 </script>
+<style scoped>
+.badge {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+</style>
