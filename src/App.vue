@@ -2,7 +2,8 @@
   <div id="app">
     <!-- <HelloWorld /> -->
     <!-- <table-view-vue /> -->
-    <Cascader />
+    <!-- <Cascader /> -->
+    <TreeSelect />
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TableViewVue from './components/TableViewVue.vue'
 import Cascader from './components/Cascader.vue'
+import TreeSelect from './components/TreeSelect.vue'
 export default {
   name: 'App',
   components: {
     HelloWorld,
     TableViewVue,
-    Cascader
+    Cascader,
+    TreeSelect
   }
 }
 </script>
