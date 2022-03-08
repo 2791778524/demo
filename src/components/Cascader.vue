@@ -7,7 +7,7 @@
       v-model="demo"
     />
     <div style="width: 20%; margin: auto">
-      <a-input prefix="￥" suffix="RMB" v-model="money"/>
+      <a-input prefix="￥" suffix="RMB" v-model="money" />
       <a-input-number
         id="inputNumber"
         v-model="value"
@@ -15,7 +15,15 @@
         :max="10"
         @change="onChangeNumber"
       />
-      <a-rate v-model="stars" :default-value="2.5" allow-half @change="change" @blur="blur"/>
+      <a-rate
+        v-model="stars"
+        :default-value="2.5"
+        allow-half
+        @change="change"
+      />
+    </div>
+    <div>
+      <a-switch default-checked @change="onChangeSwitch" />
     </div>
   </div>
 </template>
@@ -64,12 +72,14 @@ export default {
         console.log("否");
       }
     },
-    onChangeNumber(value) {},
-    change(value) {
-      this.stars = value
+    onChangeNumber(value) {
+      console.log(value);
     },
-    blur() {
-      console.log(11111);
+    change(value) {
+      this.stars = value;
+    },
+    onChangeSwitch(value) {
+      // console.log(value);
     }
   },
 };
