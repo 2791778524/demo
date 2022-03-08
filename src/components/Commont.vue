@@ -65,6 +65,7 @@ export default {
         this.submitting = false;
         this.comments = [
           {
+              
             author: "Han Solo",
             avatar:
               "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
