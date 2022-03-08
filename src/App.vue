@@ -3,7 +3,8 @@
     <!-- <HelloWorld /> -->
     <!-- <table-view-vue /> -->
     <!-- <Cascader /> -->
-    <TreeSelect />
+    <!-- <TreeSelect /> -->
+    <Commont />
   </div>
 </template>
 
@@ -12,13 +13,15 @@ import HelloWorld from './components/HelloWorld.vue'
 import TableViewVue from './components/TableViewVue.vue'
 import Cascader from './components/Cascader.vue'
 import TreeSelect from './components/TreeSelect.vue'
+import Commont from './components/Commont.vue'
 export default {
   name: 'App',
   components: {
     HelloWorld,
     TableViewVue,
     Cascader,
-    TreeSelect
+    TreeSelect,
+    Commont
   }
 }
 </script>
