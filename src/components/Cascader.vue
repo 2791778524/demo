@@ -137,10 +137,10 @@ export default {
     // console.log(Math.trunc('foo'));//NaN
 
     //判断一个属是正数、负数还是零  正数 +1 负数 -1 零 0
-    console.log(Math.sign(3)); //1
-    console.log(Math.sign(-4));//-1
-    console.log(Math.sign(0)); //0
-    console.log(Math.sign(undefined));//NaN
+    // console.log(Math.sign(3)); //1
+    // console.log(Math.sign(-4));//-1
+    // console.log(Math.sign(0)); //0
+    // console.log(Math.sign(undefined));//NaN
   }
 };
 </script>
