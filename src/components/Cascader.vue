@@ -132,6 +132,7 @@ export default {
     //去除一个数的小数部分
     // console.log(Math.trunc(34.55)); //34
     // console.log(Math.trunc(NaN)); //NaN
+    
     // console.log(Math.trunc('foo'));//NaN
 
     //判断一个属是正数、负数还是零  正数 +1 负数 -1 零 0
