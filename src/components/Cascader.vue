@@ -182,13 +182,15 @@ export default {
     }
     let newArray = deepClone(arr2)
 
-    newArray.obj.tel = 110
+    // newArray.obj.tel = 110
     // console.log(arr2);
     // console.log(newArray);
 
 
-    let arr3 = JSON.stringify(arr2)
-    console.log(JSON.parse(arr3));
+    let arr3 = JSON.parse(JSON.stringify(arr2))
+    arr3.obj.nation = '傣族'
+    console.log(arr2);
+    console.log(arr3);
   },
 };
 </script>
