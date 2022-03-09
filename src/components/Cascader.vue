@@ -141,6 +141,22 @@ export default {
     // console.log(Math.sign(-4));//-1
     // console.log(Math.sign(0)); //0
     // console.log(Math.sign(undefined));//NaN
+
+    /* function add(...value) {
+      console.log(...value);
+    }
+    add(1,2,3,4) */
+
+    /* function push(array, ...items) {
+      items.forEach((item)=>{
+        array.push(item)
+      })
+      console.log(array);
+    }
+
+    push([],1,2,3,4,5,6,7,8,9) */
+
+    
   }
 };
 </script>
