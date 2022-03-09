@@ -128,6 +128,20 @@ export default {
     //判断一个整数是否在最大范围内
     // console.log(Number.isSafeInteger(9007199254740990)) //true
     // console.log(Number.isSafeInteger(9007199254740992)) //false
+<<<<<<< HEAD
+=======
+
+    //去除一个数的小数部分
+    // console.log(Math.trunc(34.55)); //34
+    // console.log(Math.trunc(NaN)); //NaN
+    // console.log(Math.trunc('foo'));//NaN
+
+    //判断一个属是正数、负数还是零  正数 +1 负数 -1 零 0
+    console.log(Math.sign(3)); //1
+    console.log(Math.sign(-4));//-1
+    console.log(Math.sign(0)); //0
+    console.log(Math.sign(undefined));//NaN
+>>>>>>> lizilong
   }
 };
 </script>
