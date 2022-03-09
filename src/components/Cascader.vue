@@ -128,7 +128,7 @@ export default {
     //判断一个整数是否在最大范围内
     // console.log(Number.isSafeInteger(9007199254740990)) //true
     // console.log(Number.isSafeInteger(9007199254740992)) //false
-
+    
   }
 };
 </script>
