@@ -25,6 +25,7 @@
     <div>
       <a-switch default-checked @change="onChangeSwitch" />
     </div>
+    <button>点击我</button>
   </div>
 </template>
 <script>
@@ -80,6 +81,20 @@ export default {
     },
     onChangeSwitch(value) {
       // console.log(value);
+    },
+    
+    //防抖
+    fangdou(fn) {
+      let timer = null
+      return function() {
+        if(!isNaN(timer)) {
+          timer = clearTimeout(timer)
+        } else {
+          timer = setTimeout(()=> {
+            fn()
+          },1000)
+        }
+      }
     },
   },
 
@@ -252,6 +267,19 @@ export default {
       result4.push(item)
     })
     console.log(result4);
+
+    //返回符合条件的数组下标 无符合返回-1
+    let index = test.findIndex((item) => item.sex === '女')
+
+    //返回首次符合条件的数组元素
+    let result5 = test.find((item)=>item.sex === '男')
+    console.log(result5);
+
+    //防抖
+    let btnDom = document.documentElement.getElementsByTagName('button')[1]
+    btnDom.addEventListener('click',this.fangdou(function(){console.log(111111);}))
+    
   },
+  
 };
 </script>
