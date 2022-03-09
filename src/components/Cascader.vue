@@ -189,8 +189,61 @@ export default {
 
     let arr3 = JSON.parse(JSON.stringify(arr2))
     arr3.obj.nation = '傣族'
-    console.log(arr2);
-    console.log(arr3);
+    /* console.log(arr2);
+    console.log(arr3); */
+    let str3 = 'asdfgh'
+    
+    //字符串反转
+    // console.log(str3.split('').reverse().join(''));
+    
+    //返回字符首次出现的位置
+    let str4 = 'stringt'
+    // console.log(str4.indexOf('t'));
+    
+    //截取字符串
+    // console.log(str4.substring(0,3));
+
+    let test = [
+      {
+        name: '张三',
+        age: 18,
+        sex: '男',
+        address: '南京市江宁区'
+      },
+      {
+        name: '小红',
+        age: 20,
+        sex: '女',
+        address: '南京市江宁区'
+      },
+      {
+        name: '小明',
+        age: 19,
+        sex: '男',
+        address: '南京市江宁区'
+      }
+    ]
+    //过滤器
+    let result = test.filter((item)=>{
+      return item.sex === '女'
+    })
+    //每一项都符合条件时返回true否则返回false
+    let result1 = test.every((item)=>{
+      return item.address === '南京市江宁区'
+    })
+    //只要有一项符合返回true负责返回false
+    let result2 = test.some((item) => {
+      return item.sex === '女'
+    })
+    let result3 = test.map((item) => {
+      if(item.name === '小明')
+      {
+        item.address = '上海市'
+      }
+      return item
+    })
+    console.log(result3);
+    
   },
 };
 </script>
