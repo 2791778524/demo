@@ -2,9 +2,9 @@
   <div id="app">
     <!-- <HelloWorld /> -->
     <!-- <table-view-vue /> -->
-    <!-- <Cascader /> -->
+    <Cascader />
     <!-- <TreeSelect /> -->
-    <Commont />
+    <!-- <Commont /> -->
   </div>
 </template>
 
