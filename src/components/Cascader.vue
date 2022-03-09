@@ -80,12 +80,12 @@ export default {
     },
     onChangeSwitch(value) {
       // console.log(value);
-    }
+    },
   },
 
   mounted() {
-    let str = 'abc'
-    let newStr = null
+    let str = "abc";
+    let newStr = null;
     //返回一个新的字符串，将源字符串循环多少次
     // newStr = str.repeat(3)
     // console.log(newStr);
@@ -98,21 +98,20 @@ export default {
     // newStr = str.padEnd(8,'b')
     // console.log(newStr);
 
-
-    let str1 = '  lll   a    '
+    let str1 = "  lll   a    ";
     //消除字符串头部空格
     // console.log(str1.trimStart());
     //消除字符串尾部空格
     // console.log(str1.trimEnd());
 
-    let str2 = 'abcabc'
+    let str2 = "abcabc";
     //字符串替换
     // console.log(str2.replace(/b/g,'d'))
     // console.log(str2.replaceAll('b','_'))
 
     //返回对应位置的字符
     // console.log(str2.at(3));
-    
+
     //查看一个数是否有限
     // console.log(Number.isFinite(5));  //true
     // console.log(Number.isFinite(5.1));  //true
@@ -133,7 +132,7 @@ export default {
     //去除一个数的小数部分
     // console.log(Math.trunc(34.55)); //34
     // console.log(Math.trunc(NaN)); //NaN
-    
+
     // console.log(Math.trunc('foo'));//NaN
 
     //判断一个属是正数、负数还是零  正数 +1 负数 -1 零 0
@@ -156,7 +155,40 @@ export default {
 
     push([],1,2,3,4,5,6,7,8,9) */
 
-    
-  }
+    //深拷贝
+    function deepClone(obj) {
+      let objClone = Array.isArray(obj) ? [] : {};
+      if (obj && typeof obj === "object") {
+        for (let key in obj) {
+          if (obj[key] && typeof obj[key] === "object") {
+            objClone[key] = deepClone(obj[key]);
+          } else {
+            objClone[key] = obj[key];
+          }
+        }
+      }
+      return objClone;
+    }
+    let arr2 = {
+      name: "张三",
+      age: 18,
+      sex: "男",
+      hobby: ['吃饭','睡觉','打豆豆'],
+      obj: {
+        tel: 10086,
+        address: '北京紫禁城',
+        nation: '汉'
+      }
+    }
+    let newArray = deepClone(arr2)
+
+    newArray.obj.tel = 110
+    // console.log(arr2);
+    // console.log(newArray);
+
+
+    let arr3 = JSON.stringify(arr2)
+    console.log(JSON.parse(arr3));
+  },
 };
 </script>
