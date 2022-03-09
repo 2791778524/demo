@@ -242,8 +242,16 @@ export default {
       }
       return item
     })
-    console.log(result3);
-    
+    //不可返回数据
+    let result4 = []
+    test.forEach((item)=>{
+      if(item.sex === '男')
+      {
+        item.hobby = '打篮球'
+      }
+      result4.push(item)
+    })
+    console.log(result4);
   },
 };
 </script>
