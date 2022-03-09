@@ -274,7 +274,8 @@ export default {
 
     //防抖
     let btnDom = document.documentElement.getElementsByTagName('button')[1]
-    btnDom.addEventListener('click',this.fangdou(function(){console.log(111111);},2000))
+    btnDom.addEventListener('click',this.fangdou(function(){console.log('防抖成功');},2000))
+    
   },
     
 };
