@@ -26,6 +26,7 @@
       <a-switch default-checked @change="onChangeSwitch" />
     </div>
     <button>点击我</button>
+    <input type="text" class="input" />
   </div>
 </template>
 <script>
@@ -82,16 +83,29 @@ export default {
     onChangeSwitch(value) {
       // console.log(value);
     },
-    
+
     //防抖
-    fangdou(fn,wait) {
-      let timer = null
-      return function() {
-        if(timer) clearTimeout(timer)
-          timer = setTimeout(()=> {
-            fn()
-          },wait)
+    fangdou(fn, wait) {
+      let timer = null;
+      return function () {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(() => {
+          fn();
+        }, wait);
+      };
+    },
+    //节流
+    jieliu(fn, wait) {
+      let timer = null;
+      return function () {
+        if (timer === null) {
+          timer = setTimeout(() => {
+            fn();
+            clearTimeout(timer);
+            timer = null;
+          }, wait);
         }
+      };
     },
   },
 
@@ -185,98 +199,107 @@ export default {
       name: "张三",
       age: 18,
       sex: "男",
-      hobby: ['吃饭','睡觉','打豆豆'],
+      hobby: ["吃饭", "睡觉", "打豆豆"],
       obj: {
         tel: 10086,
-        address: '北京紫禁城',
-        nation: '汉'
-      }
-    }
-    let newArray = deepClone(arr2)
+        address: "北京紫禁城",
+        nation: "汉",
+      },
+    };
+    let newArray = deepClone(arr2);
 
     // newArray.obj.tel = 110
     // console.log(arr2);
     // console.log(newArray);
 
-
-    let arr3 = JSON.parse(JSON.stringify(arr2))
-    arr3.obj.nation = '傣族'
+    let arr3 = JSON.parse(JSON.stringify(arr2));
+    arr3.obj.nation = "傣族";
     /* console.log(arr2);
     console.log(arr3); */
-    let str3 = 'asdfgh'
-    
+    let str3 = "asdfgh";
+
     //字符串反转
     // console.log(str3.split('').reverse().join(''));
-    
+
     //返回字符首次出现的位置
-    let str4 = 'stringt'
+    let str4 = "stringt";
     // console.log(str4.indexOf('t'));
-    
+
     //截取字符串
     // console.log(str4.substring(0,3));
 
     let test = [
       {
-        name: '张三',
+        name: "张三",
         age: 18,
-        sex: '男',
-        address: '南京市江宁区'
+        sex: "男",
+        address: "南京市江宁区",
       },
       {
-        name: '小红',
+        name: "小红",
         age: 20,
-        sex: '女',
-        address: '南京市江宁区'
+        sex: "女",
+        address: "南京市江宁区",
       },
       {
-        name: '小明',
+        name: "小明",
         age: 19,
-        sex: '男',
-        address: '南京市江宁区'
-      }
-    ]
+        sex: "男",
+        address: "南京市江宁区",
+      },
+    ];
     //过滤器
-    let result = test.filter((item)=>{
-      return item.sex === '女'
-    })
+    let result = test.filter((item) => {
+      return item.sex === "女";
+    });
     //每一项都符合条件时返回true否则返回false
-    let result1 = test.every((item)=>{
-      return item.address === '南京市江宁区'
-    })
+    let result1 = test.every((item) => {
+      return item.address === "南京市江宁区";
+    });
     //只要有一项符合返回true负责返回false
     let result2 = test.some((item) => {
-      return item.sex === '女'
-    })
+      return item.sex === "女";
+    });
     let result3 = test.map((item) => {
-      if(item.name === '小明')
-      {
-        item.address = '上海市浦口区'
+      if (item.name === "小明") {
+        item.address = "上海市浦口区";
       }
-      return item
-    })
+      return item;
+    });
     //不可返回数据
-    let result4 = []
-    test.forEach((item)=>{
-      if(item.sex === '男')
-      {
-        item.hobby = '打篮球'
+    let result4 = [];
+    test.forEach((item) => {
+      if (item.sex === "男") {
+        item.hobby = "打篮球";
       }
-      result4.push(item)
-    })
+      result4.push(item);
+    });
     console.log(result4);
 
     //返回符合条件的数组下标 无符合返回-1
-    let index = test.findIndex((item) => item.sex === '女')
+    let index = test.findIndex((item) => item.sex === "女");
 
     //返回首次符合条件的数组元素
-    let result5 = test.find((item)=>item.sex === '男')
+    let result5 = test.find((item) => item.sex === "男");
     console.log(result5);
 
     //防抖
-    let btnDom = document.documentElement.getElementsByTagName('button')[1]
-    btnDom.addEventListener('click',this.fangdou(function(){console.log('防抖成功');},2000))
-    
+    let btnDom = document.documentElement.getElementsByTagName("button")[1];
+    btnDom.addEventListener(
+      "click",
+      this.fangdou(function () {
+        console.log("防抖成功");
+      }, 2000)
+    );
+
+    //节流
+    let inputDom = document.getElementsByClassName("input")[0];
+    inputDom.addEventListener(
+      "input",
+      this.jieliu(function () {
+        console.log("节流成功");
+      }, 2000)
+    );
   },
-    
 };
 </script>
