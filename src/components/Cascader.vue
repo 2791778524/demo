@@ -84,17 +84,14 @@ export default {
     },
     
     //防抖
-    fangdou(fn) {
+    fangdou(fn,wait) {
       let timer = null
       return function() {
-        if(!isNaN(timer)) {
-          timer = clearTimeout(timer)
-        } else {
+        if(timer) clearTimeout(timer)
           timer = setTimeout(()=> {
             fn()
-          },1000)
+          },wait)
         }
-      }
     },
   },
 
@@ -277,9 +274,8 @@ export default {
 
     //防抖
     let btnDom = document.documentElement.getElementsByTagName('button')[1]
-    btnDom.addEventListener('click',this.fangdou(function(){console.log(111111);}))
-    
+    btnDom.addEventListener('click',this.fangdou(function(){console.log(111111);},2000))
   },
-  
+    
 };
 </script>
