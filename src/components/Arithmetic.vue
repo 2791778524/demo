@@ -5,7 +5,7 @@
 <script>
 export default {
   mounted() {
-    let newArr = this.insertionSortDown([
+    let newArr = this.shellSort([
       34, 1, 56, 3435, 12, 56, 23, 56, 12, 57,
     ]);
     console.log(newArr);
@@ -93,6 +93,26 @@ export default {
           index--;
         }
         arr[index + 1] = current;
+      }
+      return arr;
+    },
+    //希尔排序
+    shellSort(arr) {
+      var len = arr.length,
+        temp,
+        gap = 1;
+      while (gap < len / 3) {
+        //动态定义间隔序列
+        gap = gap * 3 + 1;
+      }
+      for (gap; gap > 0; gap = Math.floor(gap / 3)) {
+        for (var i = gap; i < len; i++) {
+          temp = arr[i];
+          for (var j = i - gap; j >= 0 && arr[j] > temp; j -= gap) {
+            arr[j + gap] = arr[j];
+          }
+          arr[j + gap] = temp;
+        }
       }
       return arr;
     },
