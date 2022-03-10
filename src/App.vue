@@ -5,6 +5,7 @@
     <Cascader />
     <!-- <TreeSelect /> -->
     <!-- <Commont /> -->
+    <Arithmetic />
   </div>
 </template>
 
@@ -14,6 +15,7 @@ import TableViewVue from './components/TableViewVue.vue'
 import Cascader from './components/Cascader.vue'
 import TreeSelect from './components/TreeSelect.vue'
 import Commont from './components/Commont.vue'
+import Arithmetic from './components/Arithmetic.vue'
 export default {
   name: 'App',
   components: {
@@ -21,7 +23,8 @@ export default {
     TableViewVue,
     Cascader,
     TreeSelect,
-    Commont
+    Commont,
+    Arithmetic
   }
 }
 </script>
