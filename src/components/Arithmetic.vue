@@ -96,7 +96,7 @@ export default {
       }
       return arr;
     },
-    //希尔排序
+    //希尔排序升序
     shellSort(arr) {
       var len = arr.length,
         temp,
