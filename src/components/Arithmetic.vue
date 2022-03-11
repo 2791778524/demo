@@ -5,18 +5,17 @@
 <script>
 export default {
   mounted() {
-    let newArr = this.shellSortDown([
-      34, 1, 56, 3435, 12, 56, 23, 56, 12, 57,
-    ]);
+    let newArr = this.shellSortDown([34, 1, 56, 3435, 12, 56, 23, 56, 12, 57]);
     // console.log(newArr);
     let maxProfit = this.getMacProfit([
       34, 1, 56, 3435, 12, 56, 23, 56, 12, 57,
-    ])
+    ]);
     // console.log(maxProfit);
 
     // console.log(this.getFactorial(2,2));
 
-    console.log(this.getArrayDuplicate([1,2,1,5,6,3,5,3,1,2,6,8,76,9]));
+    // console.log(this.getArrayDuplicate([1,2,1,5,6,3,5,3,1,2,6,8,76,9]));
+    // this.getTimer();
   },
   methods: {
     //冒泡排序降序
@@ -146,37 +145,64 @@ export default {
     },
     //获取数组中的最大插值
     getMacProfit(arr) {
-      let max = arr[0], min = arr[0]
-      for(let i=0; i<arr.length;i++){
-        if(max < arr[i]){
-          max = arr[i]
+      let max = arr[0],
+        min = arr[0];
+      for (let i = 0; i < arr.length; i++) {
+        if (max < arr[i]) {
+          max = arr[i];
         }
-        if(min > arr[i]){
-          min = arr[i]
+        if (min > arr[i]) {
+          min = arr[i];
         }
       }
-      return max - min
+      return max - min;
     },
     //获取一个数的阶乘
     getFactorial(num, n) {
-      let result = 1
-      for(let i=0; i<n; i++){
-        result = result * num
+      let result = 1;
+      for (let i = 0; i < n; i++) {
+        result = result * num;
       }
-      return result
+      return result;
     },
     //数组去重
     getArrayDuplicate(arr) {
-      for(let i=0; i<arr.length; i++){
-        for (let j=i+1; j<arr.length; j++) {
-          if(arr[i] === arr[j]) {
-            arr.splice(j,1)
-            j--
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          if (arr[i] === arr[j]) {
+            arr.splice(j, 1);
+            j--;
           }
         }
       }
-      return arr
-    }
+      return arr;
+    },
+    //获取当前的时间
+    getTimer() {
+      let timer = null;
+      setInterval(() => {
+        let time = new Date();
+        let y = time.getFullYear();
+        let m = time.getMonth() + 1;
+        let d = time.getDate();
+        let h = time.getHours();
+        let min = time.getMinutes();
+        let s = time.getSeconds();
+        if (m < 10) {
+          m = `0${m}`;
+        }
+        if (h < 10) {
+          h = `0${h}`;
+        }
+        if (min < 10) {
+          min = `0${min}`;
+        }
+        if (s < 10) {
+          s = `0${s}`;
+        }
+        console.log(`${y}年${m}月${d}日： ${h}:${min}:${s}`);
+      }, 1000);
+    },
   },
 };
 </script>
