@@ -8,7 +8,15 @@ export default {
     let newArr = this.shellSortDown([
       34, 1, 56, 3435, 12, 56, 23, 56, 12, 57,
     ]);
-    console.log(newArr);
+    // console.log(newArr);
+    let maxProfit = this.getMacProfit([
+      34, 1, 56, 3435, 12, 56, 23, 56, 12, 57,
+    ])
+    // console.log(maxProfit);
+
+    // console.log(this.getFactorial(2,2));
+
+    console.log(this.getArrayDuplicate([1,2,1,5,6,3,5,3,1,2,6,8,76,9]));
   },
   methods: {
     //冒泡排序降序
@@ -136,6 +144,39 @@ export default {
       }
       return arr;
     },
+    //获取数组中的最大插值
+    getMacProfit(arr) {
+      let max = arr[0], min = arr[0]
+      for(let i=0; i<arr.length;i++){
+        if(max < arr[i]){
+          max = arr[i]
+        }
+        if(min > arr[i]){
+          min = arr[i]
+        }
+      }
+      return max - min
+    },
+    //获取一个数的阶乘
+    getFactorial(num, n) {
+      let result = 1
+      for(let i=0; i<n; i++){
+        result = result * num
+      }
+      return result
+    },
+    //数组去重
+    getArrayDuplicate(arr) {
+      for(let i=0; i<arr.length; i++){
+        for (let j=i+1; j<arr.length; j++) {
+          if(arr[i] === arr[j]) {
+            arr.splice(j,1)
+            j--
+          }
+        }
+      }
+      return arr
+    }
   },
 };
 </script>
